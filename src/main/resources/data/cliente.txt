@@ -1,0 +1,4 @@
+|ClienteId|ClienteNombre|ClienteApellido|ClienteCorreo|ClienteEstado|
+|---------|-------------|---------------|-------------|-------------|
+|100263|FIDEL HUGO|CASTRO CHAVEZ|fidel.castro@gmail.com|A|
+|100265|PABLO EMILIO|ESCOBAR GAVIRIA|pablo.escobar@gmail.com|A|

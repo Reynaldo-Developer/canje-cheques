@@ -1,0 +1,56 @@
+|BancoId|BancoNombre|
+|-----|------------------------------|
+|1    |BANCO CENTRAL DE RESERVA PERU |
+|2    |BANCO DE CREDITO DEL PERU     |
+|3    |BANCO INTERBANK               |
+|7    |BANCO CITIBANK S.A            |
+|9    |SCOTIABANK PERÚ S.A.A.        |
+|11   |BANCO CONTINENTAL             |
+|18   |BANCO DE LA NACION            |
+|23   |BANCO DE COMERCIO             |
+|35   |BANCO PICHINCHA               |
+|38   |BANCO INTERAMERICANO FINANZAS |
+|43   |SANTANDER CONSUMER BANK       |
+|49   |MIBANCO BANCO DE LA MICROEMP.R|
+|53   |BANCO GNB PERU                |
+|54   |BANCO FALABELLA PERÚ S.A.     |
+|55   |BANCO RIPLEY                  |
+|56   |BANCO SANTANDER PERU          |
+|58   |ALFIN BANCO S.A.              |
+|60   |ICBC - BANCO ICBC             |
+|62   |BANK OF CHINA (PERU)          |
+|91   |COMPARTAMOS BANCO S.A.        |
+|93   |FINANCIERA QAPAQ              |
+|94   |FINANCIERA OH                 |
+|96   |FINANCIERA EFECTIVA           |
+|99   |FINANCIERA CONFIANZA          |
+|800  |CAJA METROPOLITANA            |
+|801  |CMAC PIURA                    |
+|802  |CMAC TRUJILLO                 |
+|803  |CMAC AREQUIPA                 |
+|805  |CMAC SULLANA                  |
+|806  |CMAC CUSCO                    |
+|808  |CMAC HUANCAYO                 |
+|809  |CMAC ICA                      |
+|811  |CMAC MAYNAS                   |
+|813  |CMAC TACNA                    |
+|836  |CAJA RAIZ                     |
+|840  |AGROBANCO                     |
+|870  |CMAC PAITA                    |
+|880  |CMAC DEL SANTA                |
+|890  |CRAC PRYMERA                  |
+|900  |CRAC LOS ANDES                |
+|905  |CRAC SIPAN                    |
+|910  |CRAC INCASUR                  |
+|915  |CRAC CENCOSUD SCOTIA          |
+|920  |CRAC DEL CENTRO               |
+|925  |FINANC. PROEMPRESA            |
+|930  |FINANC. CREDINKA              |
+|955  |MITSUI AUTO FINANCE           |
+|960  |EDPYME ALTERNATIVA            |
+|965  |EDPYME PROGRESO S.A.          |
+|970  |EDPYME MICASITA               |
+|980  |EDPYME CREDIVISION            |
+|986  |EDPYME SANTANDER              |
+|990  |ACCESO CREDITICIO             |
+|998  |INVERSIONES LA CRUZ           |
