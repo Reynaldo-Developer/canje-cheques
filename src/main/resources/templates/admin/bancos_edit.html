@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Editar Banco</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container py-4">
+  <h3>Editar Banco</h3>
+
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <form method="post" th:action="@{'/admin/bancos/' + ${banco.bancoId} + '/edit'}" th:object="${banco}" class="row g-2">
+        <div class="col-md-2">
+          <input class="form-control" type="number" th:field="*{bancoId}" readonly>
+        </div>
+        <div class="col-md-6">
+          <input class="form-control" th:field="*{nombre}" required>
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-primary w-100" type="submit">Actualizar</button>
+        </div>
+      </form>
+
+      <a class="btn btn-link mt-2" href="/admin/bancos">Volver</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

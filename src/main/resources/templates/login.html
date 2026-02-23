@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Login - Canje Cheques</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container">
+  <div class="row justify-content-center align-items-center" style="min-height: 90vh;">
+    <div class="col-md-5 col-lg-4">
+      <div class="card shadow-sm">
+        <div class="card-body p-4">
+          <h4 class="fw-bold mb-2">Canje de Cheques</h4>
+          <p class="text-muted mb-4">Inicia sesión</p>
+
+          <form method="post" action="/login">
+          <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
+          <div class="mb-3">
+            <label class="form-label">Usuario</label>
+            <input class="form-control" name="username" required/>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Contraseña</label>
+            <input class="form-control" type="password" name="password" required/>
+          </div>
+
+          <button class="btn btn-primary w-100" type="submit">Ingresar</button>
+        </form>
+
+          <div th:if="${param.error}" class="alert alert-danger mt-3 mb-0">
+            Credenciales incorrectas.
+          </div>
+          <div th:if="${param.logout}" class="alert alert-success mt-3 mb-0">
+            Sesión cerrada.
+          </div>
+
+          <hr class="my-3"/>
+          <small class="text-muted">
+            Demo: admin/admin123 (ADMIN) | user/user123 (USER)
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

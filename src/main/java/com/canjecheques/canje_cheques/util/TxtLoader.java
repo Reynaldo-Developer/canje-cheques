@@ -26,52 +26,81 @@ public class TxtLoader {
     }
 
     public List<BancoEntity> loadBancos() {
-        String path = env.getProperty("app.data.banco", "classpath:data/banco.txt");
-        List<String[]> rows = readTable(path);
+    String path = env.getProperty("app.data.banco", "classpath:data/banco.txt");
+    List<String[]> rows = readTable(path);
+    List<BancoEntity> out = new ArrayList<>();
 
-        List<BancoEntity> out = new ArrayList<>();
-        for (String[] c : rows) {
-            // banco.txt: |BancoId|BancoNombre|
-            int bancoId = parseInt(c, 0, "BancoId");
-            String nombre = parseStr(c, 1);
-            out.add(new BancoEntity(bancoId, nombre)); // <-- tu constructor real
-        }
-        return out;
+    for (String[] c : rows) {
+        // |BancoId|Nombre|
+        int bancoId = Integer.parseInt(c[0].trim());
+        String nombre = c[1].trim();
+
+        out.add(new BancoEntity(bancoId, nombre));
     }
+    return out;
+}
 
-    public List<SucursalEntity> loadSucursales() {
-        String path = env.getProperty("app.data.sucursal", "classpath:data/sucursal.txt");
-        List<String[]> rows = readTable(path);
+public List<SucursalEntity> loadSucursales() {
+    String path = env.getProperty("app.data.sucursal", "classpath:data/sucursal.txt");
+    List<String[]> rows = readTable(path);
+    List<SucursalEntity> out = new ArrayList<>();
 
-        List<SucursalEntity> out = new ArrayList<>();
-        for (String[] c : rows) {
-            // sucursal.txt: |BancoId|SucursalId|SucursalNombre|SucursalUbigeo|SucursalDireccion|SucursalExclusiva|
-            int bancoId = parseInt(c, 0, "BancoId");
-            int sucursalId = parseInt(c, 1, "SucursalId");
-            String nombre = parseStr(c, 2);
-            out.add(new SucursalEntity(bancoId, sucursalId, nombre)); // <-- tu constructor real
-        }
-        return out;
+    for (String[] c : rows) {
+        // |BancoId|SucursalId|Nombre|Ubigeo|Direccion|Exclusiva|
+        int bancoId = Integer.parseInt(c[0].trim());
+        int sucursalId = Integer.parseInt(c[1].trim());
+        String nombre = c[2].trim();
+        String ubigeo = c[3].trim();
+        String direccion = c[4].trim();
+        boolean exclusiva = c[5].trim().equalsIgnoreCase("S");
+
+        SucursalEntity s = new SucursalEntity();
+        s.setBancoId(bancoId);
+        s.setSucursalId(sucursalId);
+        s.setNombre(nombre);
+        s.setUbigeo(ubigeo);
+        s.setDireccion(direccion);
+        s.setExclusiva(exclusiva);
+
+        out.add(s);
     }
+    return out;
+}
 
-    public List<ClienteEntity> loadClientes() {
-        String path = env.getProperty("app.data.cliente", "classpath:data/cliente.txt");
-        List<String[]> rows = readTable(path);
+public List<ClienteEntity> loadClientes() {
+    String path = env.getProperty("app.data.cliente", "classpath:data/cliente.txt");
+    List<String[]> rows = readTable(path);
+    List<ClienteEntity> out = new ArrayList<>();
 
-        List<ClienteEntity> out = new ArrayList<>();
-        for (String[] c : rows) {
-            // cliente.txt: |ClienteId|ClienteNombre|ClienteApellido|ClienteCorreo|ClienteEstado|
-            int clienteId = parseInt(c, 0, "ClienteId");
-            String nombre = parseStr(c, 1);
-            String apellido = parseStr(c, 2);
+    for (String[] c : rows) {
+        // |ClienteId|Nombre|Apellido|Correo|Estado|
+        int clienteId = Integer.parseInt(c[0].trim());
+        String nombre = c[1].trim();
+        String apellido = c[2].trim();
+        String correo = c[3].trim();
+        String estadoRaw = c[4].trim();
 
-            // tu ClienteEntity solo tiene (id, nombre), así que armamos el nombre completo
-            String nombreCompleto = (nombre + " " + apellido).trim();
-
-            out.add(new ClienteEntity(clienteId, nombreCompleto)); // <-- tu constructor real
+        int estado;
+        if (estadoRaw.equalsIgnoreCase("A") || estadoRaw.equalsIgnoreCase("ACTIVO")) {
+            estado = 1;
+        } else if (estadoRaw.equalsIgnoreCase("I") || estadoRaw.equalsIgnoreCase("INACTIVO")) {
+            estado = 0;
+        } else {
+            // por si algún día viene 0/1 directamente
+            estado = Integer.parseInt(estadoRaw);
         }
-        return out;
+
+        ClienteEntity cli = new ClienteEntity();
+        cli.setClienteId(clienteId);
+        cli.setNombre(nombre);
+        cli.setApellido(apellido);
+        cli.setCorreo(correo);
+        cli.setEstado(estado);
+
+        out.add(cli);
     }
+    return out;
+}
 
     public List<ChequeEntity> loadCheques() {
         String path = env.getProperty("app.data.cheque", "classpath:data/cheque.txt");
